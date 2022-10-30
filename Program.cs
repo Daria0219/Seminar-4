@@ -91,7 +91,7 @@ Console.WriteLine("преобразованный массив:");
 PrintArray(massiv2);
 */
 
-// программа, которая задаёт массив из 8 элементов и выводит на экран массив из сумм цифр каждого числа
+/* программа, которая задаёт массив из 8 элементов и выводит на экран массив из сумм цифр каждого числа
 
 void FillArr (int[] array)
 {   int length = array.Length;
@@ -127,3 +127,31 @@ int[] mass2 = new int[8];
     for (int ind=0; ind<mass2.Length; ind++){
         mass2[ind]=Sum(mass1[ind]);}
 PrintArray(mass2);
+*/
+// Дополнительно №2
+// Массив из 12 случайных целых чисел из отрезка [-10;10]
+// отрицательных и положительных элементов поровну и нет нулей. При этом порядок следования элементов случаен
+
+int [] CreateMas(){
+    int kol = 12;
+    int positiv=0;
+    int negativ=0;
+    int[] arr = new int[12];
+    for (int i=0; i<kol; i++){
+        arr[i] = new Random().Next(-10,10);
+        while (arr[i] == 0) {
+            arr[i] = new Random().Next(-10,10);}
+        if (arr[i] > 0) {
+            positiv++;
+            if (positiv>6) arr[i] = new Random().Next(-10,-1);}
+        else { negativ++;
+            if (negativ>6) arr[i] = new Random().Next(1,10);}
+        }
+return arr;
+}
+void Print(int[] arr){
+    Console.WriteLine(String.Join(" ",arr));
+}
+int[] arr = new int[12];
+arr = CreateMas();
+Print(arr);
