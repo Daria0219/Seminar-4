@@ -92,12 +92,7 @@ PrintArray(mass2);
 // Дополнительно
 // 1. Преобразовать массив так, чтобы сначала шли нулевые элементы, а затем все остальные
 
-void FillArr (int[] array)
-{   int length = array.Length;
-        for (int i=0; i<length; i++){
-        array[i] = new Random().Next(0,100);}
-}
-void PrintArray (int[] arr)
+ void PrintArray (int[] arr)
 {   int count = arr.Length;
     int pos=0;
     while (pos<count)
@@ -107,37 +102,28 @@ void PrintArray (int[] arr)
 Console.WriteLine("Введите число элементов массива");
 int len = int.Parse(Console.ReadLine());
 int[] massiv = new int [len];
+int kol0=0;
 
 Console.WriteLine("Введите массив столбцом");
-FillArr(massiv);
-
-int[] massiv2 = new int [len];
-    int index = 1;
-    int temp = 0;
-    int j=0;
-    massiv2[0]=massiv[0];
+    int index = 0;
     while (index<len){
-        if (massiv[index] == 0) 
-            {   while (j<len) {
-                if (massiv[j] != 0) {
-                    temp = massiv[j];
-                    massiv[j]=0; 
-                    massiv[index]=temp}
-                else j++;}            }
+        massiv[index] = int.Parse(Console.ReadLine());
+        if (massiv[index] == 0) kol0++;
         index++;}
 
 Console.WriteLine();
-Console.WriteLine("исходный массив:");
 
-PrintArray(massiv);
-/*
 int[] massiv2 = new int [len];
     for (int j=0; j<kol0; j++){
         massiv2[j]=0;
     }
-    for (int i=kol0; i<massiv2.Length; i++){
-        if (massiv[i-kol0] != 0) massiv2[i]=massiv[i];
-} */
+int k = kol0;
+    for (int i=0; i<len; i++){
+        if (massiv[i] != 0) 
+    {   massiv2[k]=massiv[i];
+        k++;}
+} 
 Console.WriteLine();
 Console.WriteLine("преобразованный массив:");
+
 PrintArray(massiv2);
