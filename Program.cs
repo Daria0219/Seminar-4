@@ -51,46 +51,8 @@ return sum;
 Console.WriteLine($"Сумма цифр в числе = {Sum(N)}");
 */
 
-/* программа, которая задаёт массив из 8 элементов и выводит на экран массив из сумм цифр каждого числа
-
-void FillArr (int[] array)
-{   int length = array.Length;
-        for (int i=0; i<length; i++){
-        array[i] = new Random().Next(0,10000);}
-}
-void PrintArray (int[] arr)
-{   int count = arr.Length;
-    int pos=0;
-    while (pos<count)
-        {Console.Write($"{arr[pos]} ");
-        pos++;}
-}
-int[] mass1 = new int[8];
-Console.WriteLine("массив из 8 чисел:");
-FillArr(mass1);
-PrintArray(mass1);
-Console.WriteLine();
-
-int Sum(int num){
-int sum=0;
-int temp=0;
-int ostatok=num;
-    while (ostatok != 0) {
-        temp = ostatok%10;
-        sum = sum + temp;
-        ostatok = ostatok/10;
-    }
-return sum;
-}
-Console.WriteLine("массив из сумм цифр каждого числа первого массива:");
-int[] mass2 = new int[8];
-    for (int ind=0; ind<mass2.Length; ind++){
-        mass2[ind]=Sum(mass1[ind]);}
-PrintArray(mass2);
-*/
-
 // Дополнительно
-// 1. Преобразовать массив так, чтобы сначала шли нулевые элементы, а затем все остальные
+/* 1. Преобразовать массив так, чтобы сначала шли нулевые элементы, а затем все остальные
 
  void PrintArray (int[] arr)
 {   int count = arr.Length;
@@ -127,3 +89,41 @@ Console.WriteLine();
 Console.WriteLine("преобразованный массив:");
 
 PrintArray(massiv2);
+*/
+
+// программа, которая задаёт массив из 8 элементов и выводит на экран массив из сумм цифр каждого числа
+
+void FillArr (int[] array)
+{   int length = array.Length;
+        for (int i=0; i<length; i++){
+        array[i] = new Random().Next(0,10000);}
+}
+void PrintArray (int[] arr)
+{   int count = arr.Length;
+    int pos=0;
+    while (pos<count)
+        {Console.Write($"{arr[pos]} ");
+        pos++;}
+}
+int[] mass1 = new int[8];
+Console.WriteLine("массив из 8 чисел:");
+FillArr(mass1);
+PrintArray(mass1);
+Console.WriteLine();
+
+int Sum(int num){
+int sum=0;
+int temp=0;
+int ostatok=num;
+    while (ostatok != 0) {
+        temp = ostatok%10;
+        sum = sum + temp;
+        ostatok = ostatok/10;
+    }
+return sum;
+}
+Console.WriteLine("массив из сумм цифр каждого числа первого массива:");
+int[] mass2 = new int[8];
+    for (int ind=0; ind<mass2.Length; ind++){
+        mass2[ind]=Sum(mass1[ind]);}
+PrintArray(mass2);
