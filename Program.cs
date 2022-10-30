@@ -128,9 +128,10 @@ int[] mass2 = new int[8];
         mass2[ind]=Sum(mass1[ind]);}
 PrintArray(mass2);
 */
-// Дополнительно №2
-// Массив из 12 случайных целых чисел из отрезка [-10;10]
-// отрицательных и положительных элементов поровну и нет нулей. При этом порядок следования элементов случаен
+
+/* Дополнительно №2
+ Массив из 12 случайных целых чисел из отрезка [-10;10]
+ отрицательных и положительных элементов поровну и нет нулей. При этом порядок следования элементов случаен
 
 int [] CreateMas(){
     int kol = 12;
@@ -155,3 +156,25 @@ void Print(int[] arr){
 int[] arr = new int[12];
 arr = CreateMas();
 Print(arr);
+*/
+
+// Дополнительно: ЗАДАЧА №3
+
+int [] CoordinatsX = new int [8];
+int [] CoordinatsY = new int [8];
+
+Console.WriteLine("Введите координаты ферзей (диапазон от 1 до 8)");
+for (int i=0; i<8; i++){
+CoordinatsX[i]=Console.Read();
+CoordinatsY[i]=int.Parse(Console.ReadLine());}
+
+string res="NO";
+
+for (int i=0; i<8; i++){
+    for (int j=0; j<8; j++){
+        if (j != i) 
+        {   if (CoordinatsX[j]==CoordinatsX[i] || CoordinatsY[j]==CoordinatsY[i]) res="YES";
+            if (Math.Abs(CoordinatsX[j]-CoordinatsX[i])==Math.Abs(CoordinatsY[j]-CoordinatsY[i])) res="YES";}
+}}
+
+Console.WriteLine(res);
